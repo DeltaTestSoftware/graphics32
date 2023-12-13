@@ -157,7 +157,7 @@ begin
     {$IFDEF HAS_NATIVEINT}
     NativeInt(CurvePtr) := NativeInt(BufferPtr) + SizeOf(TTTPolygonHeader);
     {$ELSE}
-    Integer(CurvePtr) := Integer(BufferPtr) + SizeOf(TTTPolygonHeader);
+    NativeInt(CurvePtr) := Integer(BufferPtr) + SizeOf(TTTPolygonHeader);
     {$ENDIF}
     P1 := PointFXtoPointF(BufferPtr.pfxStart);
     Path.MoveTo(P1.X + DstX, P1.Y + DstY);
@@ -206,7 +206,7 @@ begin
       {$IFDEF HAS_NATIVEINT}
       Inc(NativeInt(CurvePtr), K);
       {$ELSE}
-      Inc(Integer(CurvePtr), K);
+      Inc(NativeInt(CurvePtr), K);
       {$ENDIF}
     end;
 
@@ -216,7 +216,7 @@ begin
     {$IFDEF HAS_NATIVEINT}
     Inc(NativeInt(BufferPtr), BufferPtr.cb);
     {$ELSE}
-    Inc(integer(BufferPtr), BufferPtr.cb);
+    Inc(NativeInt(BufferPtr), BufferPtr.cb);
     {$ENDIF}
   end;
 

@@ -817,7 +817,11 @@ var
     Result.AssignColor := AssignColor;
     Result.Dst := Dst;
   {$IFDEF USETHREADRESUME}
+  {$IFDEF COMPILER2010_UP}
+    Result.Start;
+  {$ELSE}
     Result.Resume;
+  {$ENDIF}
   {$ELSE}
     Result.Start;
   {$ENDIF}

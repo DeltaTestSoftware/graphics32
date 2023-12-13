@@ -7,7 +7,7 @@
 -NSSystem;Winapi ^
 -U"%BDS%\lib\Win32\release" ^
 EllipseTests.dpr
-@if %errorlevel% neq 0 (pause & exit)
+@if %errorlevel% neq 0 (pause & exit /b)
 
 EllipseTests.exe
 del EllipseTests.exe
